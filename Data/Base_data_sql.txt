@@ -1,0 +1,143 @@
+﻿
+--select * from Groups
+--select * from Clients
+--select * from ClientGroup
+select * from Roles
+select * from Permissions
+select * from PermissionRole
+
+if (select count(*) from Groups) = 0
+begin
+	insert into Groups
+	(
+		Name
+	)
+	values
+	('Mordor')
+	,('Bruchtal')
+	,('Auenland')
+end
+
+if (select count(*) from Clients) = 0
+begin
+	insert into Clients
+	(
+		Forename
+		,Surname
+	)
+	values
+	 ('Frodo','Beutlin')
+	,('Gandalf','')
+	,('Samweis','Gamdschie')
+	,('Aragorn/Streicher','')
+	,('Arwen','Undomiel')
+	,('Boromir','')
+	,('Legolas','')
+	,('Gimli','')
+	,('Saruman','')
+	,('Meriadoc','Brandybock')
+	,('Peregrin','Tuk')
+	,('Galadriel','')
+	,('Elrond','')
+	,('Bilbo','Beutlin')
+	,('Celeborn','')
+	,('Haldir','')
+	,('Gollum','')
+end
+
+if (select count(*) from ClientGroup) = 0
+begin
+	insert into ClientGroup
+	(
+		ClientsClientId
+		,GroupsGroupId
+	)
+	values
+	 (1 ,1)
+	,(2	,2)
+	,(3	,3)
+	,(4	,1)
+	,(5	,2)
+	,(6	,3)
+	,(7	,1)
+	,(8	,2)
+	,(9	,3)
+	,(10,1)
+	,(11,2)
+	,(12,3)
+	,(13,1)
+	,(14,2)
+	,(15,3)
+	,(16,1)
+	,(17,2)
+end
+
+
+if (select count(*) from Roles) = 0
+begin
+	insert into Roles
+	(
+		Name
+	)
+	values
+	('Admin')
+	,('User')
+	,('TeamLeader')
+end
+
+if (select count(*) from Permissions) = 0
+begin
+
+insert into Permissions
+(
+	Name
+)
+values
+('client:read')
+,('client:create')
+,('client:delete')
+,('client:edit')
+
+,('group:read')
+,('group:create')
+,('group:delete')
+,('group:edit')
+
+,('user:read')
+,('user:create')
+,('user:delete')
+,('user:edit')
+end
+
+if (select count(*) from PermissionRole) = 0
+begin
+	insert into PermissionRole
+	(RolesRoleId, PermissionsPermissionId)
+	values
+	 (1,1)
+	,(1,2)
+	,(1,3)
+	,(1,4)
+	,(1,5)
+	,(1,6)
+	,(1,7)
+	,(1,8)
+	,(1,9)
+	,(1,10)
+	,(1,11)
+	,(1,12)
+
+	,(2,1)
+	,(2,2)
+	,(2,3)
+	,(2,4)
+	,(2,5)
+	,(2,6)
+	,(2,7)
+	,(2,8)
+
+	,(3,1)
+	,(3,2)
+	,(3,3)
+	,(3,4)
+end
